@@ -1,6 +1,10 @@
 package com.example.isabe.controllers;
 
 import com.example.isabe.models.UserModel;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,8 +33,12 @@ public class UserController
     }
 
     @PostMapping("create-user-body")
-    public UserModel createUserBody(@RequestBody UserModel userModel)
+    public ResponseEntity<?> createUserBody(@RequestBody @Valid UserModel userModel, BindingResult result)
     {
-        return userModel;
+        if(result.hasErrors())
+        {
+            return ResponseEntity.badRequest().body(result);
+        }
+        return new ResponseEntity<UserModel>(userModel, HttpStatus.CREATED);
     }
 }
