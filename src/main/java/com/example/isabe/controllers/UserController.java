@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("user")
 public class UserController
 {
-
+    @CrossOrigin("*")
     @GetMapping("ime")
     public String getFirstName()
     {
