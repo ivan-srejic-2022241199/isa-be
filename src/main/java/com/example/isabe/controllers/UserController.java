@@ -62,6 +62,7 @@ public class UserController
         return firstName + lastName;
     }
 
+    @CrossOrigin("*")
     @PostMapping("create-user-body")
     public ResponseEntity<?> createUserBody(@RequestBody @Valid UserModel userModel, BindingResult result)
     {
