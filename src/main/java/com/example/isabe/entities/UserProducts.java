@@ -3,10 +3,12 @@ package com.example.isabe.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Table(name="users")
 @Data
-public class User
+public class UserProducts
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,4 +23,6 @@ public class User
     @Column(name="email") //Ako su identicni nazivi, moze da se izostavi ova anotacija
     private String email;
 
+    @OneToMany (mappedBy = "userId")
+    private List<Product> products;
 }

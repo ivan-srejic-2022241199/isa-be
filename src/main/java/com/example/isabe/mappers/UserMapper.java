@@ -1,8 +1,10 @@
 package com.example.isabe.mappers;
 
 import com.example.isabe.entities.User;
+import com.example.isabe.entities.UserProducts;
 import com.example.isabe.models.UserModel;
 import com.example.isabe.models.UserPageModel;
+import com.example.isabe.models.UserProductsModel;
 import org.springframework.data.domain.Page;
 
 import java.util.ArrayList;
